@@ -1,15 +1,13 @@
-import { Button } from '@/components/ui/button';
+import Header from './components/Header';
+import Options from './components/Options';
+import TypeSelector from './components/TypeSelector';
 
 const App = () => {
   return (
-    <main className="container mx-auto bg-red-400">
-      <div className="flex flex-col items-center justify-center h-screen">
-        <h1 className="text-6xl font-bold">Git Name Generator</h1>
-        <p className="text-2xl">Generate a random name for your GitHub profile</p>
-      </div>
-      <Button>Click me</Button>
-
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
+    <main className="container mx-auto flex flex-col items-center pt-20 h-screen gap-6">
+      <Header />
+      <Options />
+      <TypeSelector />
     </main>
   );
 };
