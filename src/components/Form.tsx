@@ -7,9 +7,14 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
+import { formSchema } from '@/schema';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useForm } from 'react-hook-form';
+import { z } from 'zod';
+import { Button } from './ui/button';
 
 /* 
-
+types
   Feat: New feature or functionality
   Fix: fixing a bug or error
   Refactor: Refactoring existing code
@@ -17,8 +22,26 @@ import {
 */
 
 const Form = () => {
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      type: 'feat',
+      abbreviation: '',
+      ticket: '',
+      description: '',
+    },
+  });
+
+  const { handleSubmit } = form;
+
+  function onSubmit(values: z.infer<typeof formSchema>) {
+    // Do something with the form values.
+    // ✅ This will be type-safe and validated.
+    console.log(values);
+  }
+
   return (
-    <form>
+    <form onSubmit={handleSubmit(onSubmit)}>
       <div className="flex flex-col space-y-6">
         <div className="flex flex-col space-y-4">
           <Label htmlFor="type">Task type</Label>
@@ -83,6 +106,10 @@ const Form = () => {
           <Input id="description" placeholder="e.g. Fix bug" />
         </div>
       </div>
+
+      <Button type="submit" variant="outline">
+        Generate
+      </Button>
     </form>
   );
 };

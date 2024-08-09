@@ -1,4 +1,3 @@
-import { Button } from '@/components/ui/button';
 import {
   Card,
   CardContent,
@@ -23,9 +22,7 @@ const Content = () => {
         <CardContent>
           <Form />
         </CardContent>
-        <CardFooter className="flex justify-end">
-          <Button variant="outline">Generate</Button>
-        </CardFooter>
+        <CardFooter className="flex justify-end"></CardFooter>
       </Card>
 
       <NamePreview />
