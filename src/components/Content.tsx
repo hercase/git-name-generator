@@ -6,7 +6,7 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
-import Form from './Form';
+import DataForm from './DataForm';
 import NamePreview from './NamePreview';
 
 const Content = () => {
@@ -20,7 +20,7 @@ const Content = () => {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <Form />
+          <DataForm />
         </CardContent>
         <CardFooter className="flex justify-end"></CardFooter>
       </Card>
